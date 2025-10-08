@@ -3,7 +3,7 @@ import "../assets/productStyle.css";
 
 function ProductCard({ product, onAddToCart }) {
   const [isHovered, setIsHovered] = useState(false);
-
+ 
   const formatPrice = (price) => {
     return `Rp ${price.toLocaleString("id-ID")}`;
   };
