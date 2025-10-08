@@ -1,0 +1,603 @@
+/* Forgot Password Page Styles */
+.forgot-password-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+/* Background Shapes */
+.forgot-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.background-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.shape-1 {
+  width: 600px;
+  height: 600px;
+  background: #4caf50;
+  top: -200px;
+  right: -200px;
+  animation: float 20s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: #66bb6a;
+  bottom: -150px;
+  left: -150px;
+  animation: float 15s ease-in-out infinite reverse;
+}
+
+.shape-3 {
+  width: 300px;
+  height: 300px;
+  background: #81c784;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 10s ease-in-out infinite;
+}
+
+/* Container */
+.forgot-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Card */
+.forgot-card {
+  background: white;
+  border-radius: 24px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Progress Steps */
+.progress-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.step.active .step-circle {
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+  transform: scale(1.1);
+}
+
+.step.completed .step-circle {
+  background: #2e7d32;
+  color: white;
+}
+
+.step-label {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.step.active .step-label {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.step-line {
+  width: 80px;
+  height: 3px;
+  background: #e0e0e0;
+  margin: 0 10px;
+}
+
+.step.completed + .step-line {
+  background: #4caf50;
+}
+
+/* Form Container */
+.forgot-form-container {
+  text-align: center;
+}
+
+.forgot-icon {
+  font-size: 5rem;
+  margin-bottom: 25px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.forgot-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.forgot-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.forgot-description strong {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* Form */
+.forgot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  font-size: 1.3rem;
+  z-index: 1;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 18px 14px 50px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4caf50;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+}
+
+.form-input.error {
+  border-color: #f44336;
+  background: #ffebee;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px;
+}
+
+.toggle-password:hover {
+  transform: scale(1.1);
+}
+
+.error-message {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #f44336;
+  font-weight: 500;
+}
+
+.error-message.center {
+  text-align: center;
+}
+
+/* OTP Container */
+.otp-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.otp-input {
+  width: 50px;
+  height: 55px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.otp-input:focus {
+  outline: none;
+  border-color: #4caf50;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+  transform: scale(1.05);
+}
+
+/* Resend Section */
+.resend-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.resend-section p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.resend-button {
+  background: none;
+  border: none;
+  color: #4caf50;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: underline;
+}
+
+.resend-button:hover {
+  color: #2e7d32;
+  transform: scale(1.05);
+}
+
+/* Password Requirements */
+.password-requirements {
+  text-align: left;
+  background: #f8faf9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.requirements-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 12px;
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.requirements-list li {
+  font-size: 0.9rem;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.requirements-list li.valid {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+/* Buttons */
+.submit-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: white;
+  color: #2e7d32;
+  border: 2px solid #4caf50;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.secondary-button:hover {
+  background: #e8f5e9;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.forgot-footer {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  color: #4caf50;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: #2e7d32;
+  transform: translateX(-3px);
+}
+
+/* Success Container */
+.success-container {
+  padding: 60px 40px;
+}
+
+.success-animation {
+  margin-bottom: 30px;
+}
+
+.success-icon {
+  font-size: 6rem;
+  animation: successPop 0.6s ease-out;
+}
+
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+/* Brand */
+.forgot-brand {
+  text-align: center;
+  padding: 20px;
+}
+
+.brand-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: rotate 20s linear infinite;
+}
+
+.brand-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 5px;
+}
+
+.brand-tagline {
+  font-size: 0.95rem;
+  color: #558b2f;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .forgot-card {
+    padding: 40px 30px;
+  }
+
+  .forgot-title {
+    font-size: 1.6rem;
+  }
+
+  .forgot-description {
+    font-size: 0.95rem;
+  }
+
+  .forgot-icon {
+    font-size: 4rem;
+  }
+
+  .progress-steps {
+    gap: 5px;
+  }
+
+  .step-circle {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+  }
+
+  .step-line {
+    width: 50px;
+  }
+
+  .otp-container {
+    gap: 8px;
+  }
+
+  .otp-input {
+    width: 45px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .brand-name {
+    font-size: 1.5rem;
+  }
+
+  .brand-icon {
+    font-size: 2.5rem;
+  }
+
+  .success-icon {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .forgot-card {
+    padding: 30px 20px;
+  }
+
+  .forgot-title {
+    font-size: 1.4rem;
+  }
+
+  .otp-input {
+    width: 40px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .form-input {
+    padding: 12px 15px 12px 45px;
+  }
+
+  .submit-button {
+    padding: 14px;
+    font-size: 1rem;
+  }
+}
